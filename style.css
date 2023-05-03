@@ -1,8 +1,19 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
 canvas {
   display: block;
+}
+
+.dashboard {
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.sketch-board > canvas {
+  border: black 3px solid;
 }

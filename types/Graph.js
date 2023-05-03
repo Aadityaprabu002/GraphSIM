@@ -6,11 +6,11 @@ class Graph {
     return this._nodeStore;
   }
   _drawArrow(startX, startY, endX, endY) {
-    var arrowSize = 10;
-    var angle = atan2(endY - startY, endX - startX);
+    let arrowSize = 10;
+    let angle = atan2(endY - startY, endX - startX);
     line(startX, startY, endX, endY);
     push();
-    fill(color(255, 0, 0));
+    fill(color(ARROW_COLOR));
     translate(endX, endY);
     rotate(angle);
     triangle(-arrowSize, arrowSize / 2, 0, 0, -arrowSize, -arrowSize / 2);
@@ -23,7 +23,6 @@ class Graph {
 
       for (let eachNeighbour of neighbour) {
         let [endX, endY] = eachNeighbour.getCoordinate();
-        strokeWeight(2);
         this._drawArrow(startX, startY, endX, endY);
       }
     }
@@ -57,17 +56,5 @@ class Graph {
     } else {
       alert("Provided Invalid Id for Node U and V");
     }
-  }
-  generateNode(maxHeight, maxWidth, maxNode, maxNodeSize, color) {
-    let nodes = [];
-    for (let nodeId = 1; nodeId <= maxNode; nodeId++) {
-      let x = Math.floor(Math.random() * maxHeight);
-      let y = Math.floor(Math.random() * maxWidth);
-      let d = Math.floor(Math.random() * maxNodeSize) + 20;
-      let c = color;
-      let node = new Node(nodeId, x, y, d, c, null);
-      nodes.push(node);
-    }
-    return nodes;
   }
 }

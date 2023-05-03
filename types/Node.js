@@ -25,5 +25,9 @@ class Node {
   draw() {
     fill(this._color);
     circle(this._x, this._y, this._diameter);
+    push();
+    fill(color(TEXT_COLOR));
+    text(this._id, this._x + this._diameter + 3, this._y);
+    pop();
   }
 }
